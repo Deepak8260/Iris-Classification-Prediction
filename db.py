@@ -17,10 +17,10 @@ def insert_prediction(name, features, predicted_species, model_used):
     """Insert prediction details into MongoDB."""
     data = {
         "user_name": name,
-        "sepal_length": features[0][0],
-        "sepal_width": features[0][1],
-        "petal_length": features[0][2],
-        "petal_width": features[0][3],
+        "sepal_length": round(features[0][0],2),
+        "sepal_width": round(features[0][1],2),
+        "petal_length": round(features[0][2],2),
+        "petal_width": round(features[0][3],2),
         "predicted_species": predicted_species,
         "model_used": model_used
     }
