@@ -1,16 +1,12 @@
-import os
+import streamlit as st
 import pymongo
 from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
-from dotenv import load_dotenv
 
-# Load environment variables
-load_dotenv()
-
-# Get MongoDB credentials
-MONGO_URI = os.getenv("MONGO_URI")
-MONGO_DB = os.getenv("MONGO_DB")
-MONGO_COLLECTION = os.getenv("MONGO_COLLECTION")
+# Fetch MongoDB credentials from Streamlit secrets
+MONGO_URI = st.secrets["MONGO_URI"]
+MONGO_DB = st.secrets["MONGO_DB"]
+MONGO_COLLECTION = st.secrets["MONGO_COLLECTION"]
 
 # Connect to MongoDB
 client = MongoClient(MONGO_URI, server_api=ServerApi('1'))
